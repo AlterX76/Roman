@@ -57,6 +57,15 @@ namespace RomanEngineTester
             Assert.IsTrue(_romanTranslator.Execute(3) == "III", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(4) == "IV", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(5) == "V", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(6) == "VI", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(7) == "VII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(8) == "VIII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(9) == "IX", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(10) == "X", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(11) == "XI", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(12) == "XII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(13) == "XIII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(14) == "XIV", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(18) == "XVIII", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(19) == "XIX", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(27) == "XXVII", "Not a valid translation!"); // TDD: works
@@ -64,7 +73,17 @@ namespace RomanEngineTester
             Assert.IsTrue(_romanTranslator.Execute(29) == "XXIX", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(30) == "XXX", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(38) == "XXXVIII", "Not a valid translation!"); // TDD: works
-            Assert.IsTrue(_romanTranslator.Execute(98) == "XCVIII", "Not a valid translation!"); // TDD: not working
+            Assert.IsTrue(_romanTranslator.Execute(38) == "XXXVIII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(90) == "XC", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(91) == "XCI", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(92) == "XCII", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(93) == "XCIII", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(94) == "XCIV", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(95) == "XCV", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(98) == "XCVIII", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(901) == "CMI", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(2111) == "MMCXI", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(3159) == "MMMCLIX", "Not a valid translation!"); // TDD: not working: result: MMMCLCIX
         }
 
     }

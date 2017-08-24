@@ -14,7 +14,7 @@ namespace DigitExtractorEngine.Plugins
         /// </summary>
         static public List<KeyValuePair<int, String>> RomanNumeralMap = new List<KeyValuePair<int, string>>()
         {
-             new KeyValuePair<int, string>(1000, "M")
+            new KeyValuePair<int, string>(1000, "M")
             , new KeyValuePair<int, string>(500, "D")
             , new KeyValuePair<int, string>(100, "C")
             , new KeyValuePair<int, string>(50, "L")
@@ -49,15 +49,22 @@ namespace DigitExtractorEngine.Plugins
                         number--;
                     }
                 }
-                for (int innerIndex = index + 1; (number % (RomanNumeralMap[index].Key - 1) == 0) && innerIndex < RomanNumeralMap.Count; ++innerIndex)
-                {
-                    if (RomanNumeralMap[index].Key - RomanNumeralMap[innerIndex].Key == number)
+                if (RomanNumeralMap.FindAll(x => x.Key == number).Count == 0)
+                    for (int innerIndex = index + 1; number > 0 && innerIndex < RomanNumeralMap.Count; ++innerIndex)
                     {
-                        romanNumerals += RomanNumeralMap[innerIndex].Value + RomanNumeralMap[index].Value;
-                        number = 0;
-                        break;
+                        int temp = RomanNumeralMap[index].Key - RomanNumeralMap[innerIndex].Key;
+                        if (temp == (number - (number % 10)) || temp == (number - (number % 100)))
+                        {
+                            romanNumerals += RomanNumeralMap[innerIndex].Value + RomanNumeralMap[index].Value;
+                            number -= temp;
+                        }
+                        else if (temp == number)
+                        {
+                            romanNumerals += RomanNumeralMap[innerIndex].Value + RomanNumeralMap[index].Value;
+                            number = 0;
+                            break;
+                        }
                     }
-                }
             }
             return (romanNumerals);
         }
