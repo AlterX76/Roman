@@ -23,6 +23,27 @@ namespace DigitExtractorEngine.Plugins
             , new KeyValuePair<int, string>(1, "I")
         };
 
+
+        public static string Recursive(int number, int indexMap)
+        {
+            string ret = String.Empty;
+
+            if (number == 0)
+                return (ret);
+            else if (number <= 3)
+                return RomanNumeralMap[6].Value + Recursive(number - 1, 6);
+            else if (number + 1 == RomanNumeralMap[indexMap].Key)
+            {
+                return Recursive(RomanNumeralMap[indexMap].Key - number, indexMap + 1) + RomanNumeralMap[indexMap].Value;
+            }
+            else
+            {
+                int temp = number / RomanNumeralMap[indexMap].Key;
+                for (int i = temp; i > 0; --i)
+                    ret += RomanNumeralMap[indexMap].Value;
+            }
+            return ret + Recursive(number % RomanNumeralMap[indexMap].Key, indexMap + 1);
+        }
         /// <summary>
         /// Specialized method to convert number in Roman Numerals representation
         /// </summary>

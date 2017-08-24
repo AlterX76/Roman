@@ -10,7 +10,7 @@ namespace RomanEngineTester
     /// Unit tests for the pure translator from digits to Roman numerals
     /// </summary>
     [TestClass]
-    public class RomanTranslatorMethodTest
+    public class RomanTranslatorPluginTest
     {
         RomanNumeralPlugin _romanTranslator = new RomanNumeralPlugin();
         /// <summary>
@@ -21,7 +21,7 @@ namespace RomanEngineTester
         {
             foreach (KeyValuePair<int, String> item in RomanNumeralPlugin.RomanNumeralMap)
             {
-                Assert.AreSame(_romanTranslator.Execute(item.Key), item.Value);
+                Assert.IsTrue(_romanTranslator.Execute(item.Key) == item.Value);
             }
         }
 
