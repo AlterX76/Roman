@@ -27,15 +27,16 @@ namespace DigitExtractorEngine.Plugins
         public static string Recursive(int number, int indexMap)
         {
             string ret = String.Empty;
+            int index = -1;
 
-            if (number == 0)
+            if (number <= 0) // base of recursive 
                 return (ret);
-            else if (number <= 3)
+            else if (number <= 3) //e.g. III
                 return RomanNumeralMap[6].Value + Recursive(number - 1, 6);
-            else if (number + 1 == RomanNumeralMap[indexMap].Key)
-            {
-                return Recursive(RomanNumeralMap[indexMap].Key - number, indexMap + 1) + RomanNumeralMap[indexMap].Value;
-            }
+            else if ((index = RomanNumeralMap.FindIndex(x => x.Key == number + 1)) != -1) // if one number to have an Key: 4
+                return Recursive(RomanNumeralMap[index].Key - number, index) + RomanNumeralMap[index].Value;
+            else if (number - (number % 10) > 0 && (index = RomanNumeralMap.FindIndex(x => x.Key == RomanNumeralMap[indexMap].Key - (number - (number % 10)))) != -1)
+                return Recursive(RomanNumeralMap[index].Key, index) + RomanNumeralMap[indexMap].Value + Recursive(number % 10, 0);
             else
             {
                 int temp = number / RomanNumeralMap[indexMap].Key;
@@ -51,43 +52,7 @@ namespace DigitExtractorEngine.Plugins
         /// <returns>a roman Numeral representing number (e.g. XV)</returns>
         public String Execute(int number)
         {
-            String romanNumerals = null;
-
-            if (number <= 0)
-                return String.Empty;
-            for (int index = 0; index < RomanNumeralMap.Count - 1; ++index)
-            {
-                if (number == 0)
-                    break;
-                for (int i = number / RomanNumeralMap[index].Key; i > 0; --i)
-                    romanNumerals += RomanNumeralMap[index].Value;
-                number = number % RomanNumeralMap[index].Key; // we get the left over
-                if (number <= 3)
-                {
-                    while (number > 0)
-                    {
-                        romanNumerals += RomanNumeralMap[RomanNumeralMap.Count - 1].Value;
-                        number--;
-                    }
-                }
-                if (RomanNumeralMap.FindAll(x => x.Key == number).Count == 0)
-                    for (int innerIndex = index + 1; number > 0 && innerIndex < RomanNumeralMap.Count; ++innerIndex)
-                    {
-                        int temp = RomanNumeralMap[index].Key - RomanNumeralMap[innerIndex].Key;
-                        if (temp == (number - (number % 10)) || temp == (number - (number % 100)))
-                        {
-                            romanNumerals += RomanNumeralMap[innerIndex].Value + RomanNumeralMap[index].Value;
-                            number -= temp;
-                        }
-                        else if (temp == number)
-                        {
-                            romanNumerals += RomanNumeralMap[innerIndex].Value + RomanNumeralMap[index].Value;
-                            number = 0;
-                            break;
-                        }
-                    }
-            }
-            return (romanNumerals);
+            return (Recursive(number, 0));
         }
     }
 }

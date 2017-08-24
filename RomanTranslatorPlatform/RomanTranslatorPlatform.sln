@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanEngineTranslator", "Ro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanEngineTester", "RomanEngineTester\RomanEngineTester.csproj", "{AD6D195D-8114-423F-82C9-C28EE6CC5058}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C48CCC96-7BC3-4CE2-90F7-DC3DA0BFA035}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AD6D195D-8114-423F-82C9-C28EE6CC5058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD6D195D-8114-423F-82C9-C28EE6CC5058}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD6D195D-8114-423F-82C9-C28EE6CC5058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48CCC96-7BC3-4CE2-90F7-DC3DA0BFA035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48CCC96-7BC3-4CE2-90F7-DC3DA0BFA035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48CCC96-7BC3-4CE2-90F7-DC3DA0BFA035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48CCC96-7BC3-4CE2-90F7-DC3DA0BFA035}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

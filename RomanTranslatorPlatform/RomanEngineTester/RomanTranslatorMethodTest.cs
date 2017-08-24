@@ -72,8 +72,11 @@ namespace RomanEngineTester
             Assert.IsTrue(_romanTranslator.Execute(28) == "XXVIII", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(29) == "XXIX", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(30) == "XXX", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(31) == "XXXI", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(32) == "XXXII", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(38) == "XXXVIII", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(38) == "XXXVIII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(50) == "L", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(90) == "XC", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(91) == "XCI", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(92) == "XCII", "Not a valid translation!"); // TDD: working
@@ -81,9 +84,10 @@ namespace RomanEngineTester
             Assert.IsTrue(_romanTranslator.Execute(94) == "XCIV", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(95) == "XCV", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(98) == "XCVIII", "Not a valid translation!"); // TDD: working
+            Assert.IsTrue(_romanTranslator.Execute(505) == "DV", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(901) == "CMI", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(2111) == "MMCXI", "Not a valid translation!"); // TDD: working
-            Assert.IsTrue(_romanTranslator.Execute(3159) == "MMMCLIX", "Not a valid translation!"); // TDD: not working: result: MMMCLCIX
+            Assert.IsTrue(_romanTranslator.Execute(3159) == "MMMCLIX", "Not a valid translation!"); // TDD: working
         }
 
     }
