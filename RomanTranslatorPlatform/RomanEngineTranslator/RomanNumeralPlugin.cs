@@ -32,16 +32,34 @@ namespace DigitExtractorEngine.Plugins
         {
             String romanNumerals = null;
 
-            foreach (KeyValuePair<int, String> item in RomanNumeralMap)
+            if (number <= 0)
+                return String.Empty;
+            for (int index = 0; index < RomanNumeralMap.Count - 1; ++index)
             {
                 if (number == 0)
                     break;
-                for (int i = number / item.Key; i > 0; --i)
-                    romanNumerals += item.Value;
-                number = number % item.Key; // we get the left over
+                for (int i = number / RomanNumeralMap[index].Key; i > 0; --i)
+                    romanNumerals += RomanNumeralMap[index].Value;
+                number = number % RomanNumeralMap[index].Key; // we get the left over
+                if (number <= 3)
+                {
+                    while (number > 0)
+                    {
+                        romanNumerals += RomanNumeralMap[RomanNumeralMap.Count - 1].Value;
+                        number--;
+                    }
+                }
+                for (int innerIndex = index + 1; (number % (RomanNumeralMap[index].Key - 1) == 0) && innerIndex < RomanNumeralMap.Count; ++innerIndex)
+                {
+                    if (RomanNumeralMap[index].Key - RomanNumeralMap[innerIndex].Key == number)
+                    {
+                        romanNumerals += RomanNumeralMap[innerIndex].Value + RomanNumeralMap[index].Value;
+                        number = 0;
+                        break;
+                    }
+                }
             }
             return (romanNumerals);
         }
-
     }
 }

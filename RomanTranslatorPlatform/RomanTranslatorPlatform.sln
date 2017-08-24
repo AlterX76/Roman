@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanEngineTranslator", "RomanEngineTranslator\RomanEngineTranslator.csproj", "{1054F8AE-914F-4173-8E47-55FD45E3AE9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanEngineTranslator", "RomanEngineTranslator\RomanEngineTranslator.csproj", "{1054F8AE-914F-4173-8E47-55FD45E3AE9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanEngineTester", "RomanEngineTester\RomanEngineTester.csproj", "{AD6D195D-8114-423F-82C9-C28EE6CC5058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanEngineTester", "RomanEngineTester\RomanEngineTester.csproj", "{AD6D195D-8114-423F-82C9-C28EE6CC5058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

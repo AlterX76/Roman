@@ -41,5 +41,26 @@ namespace RomanEngineTester
                 total += item.Key;
             Assert.IsTrue(_romanTranslator.Execute(total) == "MDCLXVI", "Total base value is not \"MDCLXVI\"");
         }
+
+        [TestMethod]
+        public void NonValidNumbersTestUnit()
+        {
+             Assert.IsTrue(_romanTranslator.Execute(0) == "", "Zero doesn't exist in Roman schema");
+            Assert.IsTrue(_romanTranslator.Execute(-10) == "", "Negative numbers don't exist in Roman schema");
+        }
+
+        [TestMethod]
+        public void SpecialNumbersTestUnit()
+        {
+            Assert.IsTrue(_romanTranslator.Execute(4) == "IV", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(18) == "XVIII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(19) == "XIX", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(27) == "XXVII", "Not a valid translation!"); // TDD: ?
+            Assert.IsTrue(_romanTranslator.Execute(28) == "XXVIII", "Not a valid translation!"); // TDD: ?
+            Assert.IsTrue(_romanTranslator.Execute(29) == "XXIX", "Not a valid translation!"); // TDD: ?
+            Assert.IsTrue(_romanTranslator.Execute(38) == "XXXVIII", "Not a valid translation!"); // TDD: ?
+            Assert.IsTrue(_romanTranslator.Execute(98) == "XCVIII", "Not a valid translation!"); // TDD: ?
+        }
+
     }
 }
