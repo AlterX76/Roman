@@ -49,7 +49,7 @@ namespace DigitExtractorEngine.Plugins
                         number--;
                     }
                 }
-                for (int innerIndex = index + 1; /*(number % (RomanNumeralMap[index].Key - 1) == 0) &&*/ innerIndex < RomanNumeralMap.Count; ++innerIndex)
+                for (int innerIndex = index + 1; (number % (RomanNumeralMap[index].Key - 1) == 0) && innerIndex < RomanNumeralMap.Count; ++innerIndex)
                 {
                     if (RomanNumeralMap[index].Key - RomanNumeralMap[innerIndex].Key == number)
                     {
