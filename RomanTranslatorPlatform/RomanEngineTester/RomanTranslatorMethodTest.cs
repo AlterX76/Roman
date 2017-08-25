@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 
 using DigitExtractorEngine.Plugins;
+using System.IO;
 
 namespace RomanEngineTester
 {
@@ -52,6 +53,7 @@ namespace RomanEngineTester
         [TestMethod]
         public void SpecialNumbersTestUnit()
         {
+            Assert.IsTrue(_romanTranslator.Execute(499) == "CDXCIX", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(1) == "I", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(2) == "II", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(3) == "III", "Not a valid translation!"); // TDD: works
@@ -76,6 +78,7 @@ namespace RomanEngineTester
             Assert.IsTrue(_romanTranslator.Execute(32) == "XXXII", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(38) == "XXXVIII", "Not a valid translation!"); // TDD: works
             Assert.IsTrue(_romanTranslator.Execute(38) == "XXXVIII", "Not a valid translation!"); // TDD: works
+            Assert.IsTrue(_romanTranslator.Execute(49) == "XLIX", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(50) == "L", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(90) == "XC", "Not a valid translation!"); // TDD: working
             Assert.IsTrue(_romanTranslator.Execute(91) == "XCI", "Not a valid translation!"); // TDD: working
@@ -90,5 +93,27 @@ namespace RomanEngineTester
             Assert.IsTrue(_romanTranslator.Execute(3159) == "MMMCLIX", "Not a valid translation!"); // TDD: working
         }
 
+        [TestMethod]
+        public void FileNumbersTestUnit()
+        {
+            string[] content = File.ReadAllLines(@"D:\SametimeFileTransfers\file2");
+
+            foreach(String item in content)
+            {
+                int number = int.Parse(item.Substring(0, item.IndexOf("--")));
+                string roman = item.Substring(item.IndexOf("-->") + 3).Trim();
+                Assert.IsTrue(_romanTranslator.Execute(number) == roman, $"Error converting {number}: it should be: {roman}");
+            }
+            /*
+             string[] content = File.ReadAllLines(@"D:\SametimeFileTransfers\fileRomanNumbers.dat");
+            for (int i = 1; i < 5000; i++)
+            {
+                content[0] = content[0].Substring(content[0].IndexOf($"{i}: "));
+
+                int number = i;
+                string roman = content[0].Substring(content[0].IndexOf("\">") + 2, content[0].IndexOf("</") - content[0].IndexOf("\">") - 2);
+            }
+            */
+        }
     }
 }
